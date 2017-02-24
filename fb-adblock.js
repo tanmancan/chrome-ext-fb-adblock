@@ -12,8 +12,8 @@ function checkSponsoredLink(e) {
   let sponsoredLink = document.querySelectorAll(selectors);
   if(sponsoredLink) {
     sponsoredLink.forEach(function(el,idx) {
-      el.style.background = 'red';
       if (selectorContent.indexOf(el.innerText) >= 0) {
+        el.style.background = 'red';
         recurseFindParent(el);
       }
     });
