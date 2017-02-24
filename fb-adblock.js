@@ -1,5 +1,9 @@
 const showConsoleLog = true;
 const selectors = '#facebook a[rel="nofollow"]';
+const selectorContent = [
+  'Sponsored',
+  // 'Instagram'
+];
 
 window.addEventListener('load', checkSponsoredLink, false);
 document.addEventListener('scroll', checkSponsoredLink, false);
@@ -9,7 +13,9 @@ function checkSponsoredLink(e) {
   if(sponsoredLink) {
     sponsoredLink.forEach(function(el,idx) {
       el.style.background = 'red';
-      recurseFindParent(el);
+      if (selectorContent.indexOf(el.innerText) >= 0) {
+        recurseFindParent(el);
+      }
     });
   }
 }
