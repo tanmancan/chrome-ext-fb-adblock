@@ -1,7 +1,17 @@
-var showConsole = false;
+var showConsole = true;
+
+window.addEventListener('load', function(e) {
+  var sponsoredLink = document.querySelectorAll('a[rel="nofollow"');
+  if(sponsoredLink) {
+    sponsoredLink.forEach(function(el,idx) {
+      el.style.background = 'red';
+      recurseFindParent(el);
+    });
+  }
+}, false);
 
 document.addEventListener('scroll', function(e) {
-  var sponsoredLink = document.querySelectorAll('.uiStreamSponsoredLink');
+  var sponsoredLink = document.querySelectorAll('a[rel="nofollow"');
   if(sponsoredLink) {
     sponsoredLink.forEach(function(el,idx) {
       el.style.background = 'red';
@@ -38,8 +48,8 @@ function recurseFindParent(child) {
   }
 }
 
-function clog(msg) {
+function clog(msg, el) {
   if(showConsole) {
-    console.log(msg);
+    console.log(msg, el);
   }
 }
