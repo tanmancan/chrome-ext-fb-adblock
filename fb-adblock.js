@@ -1,7 +1,8 @@
-const showConsoleLog = true;
-const selectors = '#facebook a[rel="nofollow"]';
+const showConsoleLog = false;
+const selectors = '#facebook [data-fte] span, #facebook [data-fte] div';
 const selectorContent = [
   'Sponsored',
+  'Suggested for You',
   // 'Instagram'
 ];
 
@@ -30,12 +31,12 @@ function recurseFindParent(child) {
     if(!targetCheck) {
       child = child.parentElement;
 
-      clog('==================================');
-      clog('PARENT-NOT-FOUND');
-      clog('child:', child);
-      clog('parent:', child.parentElement);
-      clog('parent.attr:', child.parentElement.getAttribute('data-fte'));
-      clog('==================================');
+      // clog('==================================');
+      // clog('PARENT-NOT-FOUND');
+      // clog('child:', child);
+      // clog('parent:', child.parentElement);
+      // clog('parent.attr:', child.parentElement.getAttribute('data-fte'));
+      // clog('==================================');
 
     }else {
       clog('==================================');
